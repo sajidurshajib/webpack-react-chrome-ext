@@ -1,0 +1,34 @@
+{
+    "manifest_version": 3,
+    "name": "Webpack-React Boilerplate",
+    "description": "My Webpack-React chrome extension boilerplate",
+    "version": "1.0.0",
+    "icons":{
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    }, 
+    "action":{
+        "default_title": "Click me",
+        "default_popup": "popup.html"
+    },
+    "permissions":[
+        "tabs",
+        "storage",
+        "bookmarks"
+    ],
+    "background": {
+        "service_worker":"background.js"
+    },
+    "chrome_url_overrides":{
+        "newtab": "newTab.html" 
+    },
+    "host_permissions": ["*://*/*"],
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "js": ["contentScript.js"]
+        }
+      ],
+    "options_page": "options.html"
+}
